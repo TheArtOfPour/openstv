@@ -17,16 +17,17 @@ __revision__ = "$Id: ScottishSTV.py 715 2010-02-27 17:00:55Z jeff.oneill $"
 from openstv.STV import WeightedInclusiveSTV
 from openstv.plugins import MethodPlugin
 
+
 ##################################################################
 
 class ScottishSTV(WeightedInclusiveSTV, MethodPlugin):
-  "Scottish STV"
+    "Scottish STV"
 
-  methodName = "Scottish STV"
-  longMethodName = "Scottish STV"
-  status = 1
+    methodName = "Scottish STV"
+    longMethodName = "Scottish STV"
+    status = 1
 
-  htmlBody = """
+    htmlBody = """
 <p>Scotland enacted these rules for local elections in 2007.  This is a
 straightforward implementation of STV and recommended to
 organizations using STV for the first time. </p>
@@ -396,16 +397,15 @@ deemed to be elected.
 <p>(2) Where the last vacancies can be filled under this rule, no further
 transfer shall be made.
 """
-  
-  htmlHelp = (MethodPlugin.htmlBegin % (longMethodName, longMethodName)) +\
-             htmlBody + MethodPlugin.htmlEnd
-  
-  def __init__(self, b):
-    WeightedInclusiveSTV.__init__(self, b)
-    MethodPlugin.__init__(self)
-    
-    self.prec = 5
-    self.threshName = ["Droop", "Static", "Whole"]
-    self.delayedTransfer = "Off"
-    self.batchElimination = "None"
 
+    htmlHelp = (MethodPlugin.htmlBegin % (longMethodName, longMethodName)) + \
+               htmlBody + MethodPlugin.htmlEnd
+
+    def __init__(self, b):
+        WeightedInclusiveSTV.__init__(self, b)
+        MethodPlugin.__init__(self)
+
+        self.prec = 5
+        self.threshName = ["Droop", "Static", "Whole"]
+        self.delayedTransfer = "Off"
+        self.batchElimination = "None"
